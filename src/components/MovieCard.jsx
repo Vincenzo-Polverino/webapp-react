@@ -6,7 +6,7 @@ export default function MovieCard({ movie }) {
                 <h4>{movie.title}</h4>
                 <span className="text-muted">By <span>{movie.director}</span></span>
                 <p className="overview mb-3">{movie.overview}</p>
-                <Link to={`/movies/${movie.id}`} className="btn btn-dark">Leggi di più</Link>
+                <Link to={`/movies/${movie.id}`} className="btn btn-dark">Dettagli</Link>
             </div>
         </div>
     );
