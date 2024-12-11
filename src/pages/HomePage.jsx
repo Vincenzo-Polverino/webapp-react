@@ -89,12 +89,12 @@ export default function HomePage() {
     return (
 
         <section>
-            <div>
+            <div className="container mx-auto">
 
-                <div>
+                <div className="row">
                     {
                         movies.map(movie => (
-                            <div className="col" key={movie.id}>
+                            <div className="col-3 g-4" key={movie.id}>
                                 <MovieCard movie={movie} />
                             </div>
                         ))
