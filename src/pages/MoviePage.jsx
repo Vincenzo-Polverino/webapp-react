@@ -94,7 +94,7 @@ export default function MoviePage() {
     }
 
     return (
-        <div className="moviePage container my-5 mx-auto card p-5 shadow-s">
+        <div className="moviePage container my-5 mx-auto card p-5 shadow">
             <h2>{movie.title} ({movie.year})</h2>
             <p><strong>Director:</strong> {movie.director}</p>
             <p><strong>Rating:</strong> {movie.rating}</p>
