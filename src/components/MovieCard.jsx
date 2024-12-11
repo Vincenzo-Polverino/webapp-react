@@ -4,8 +4,10 @@ export default function MovieCard({ movie }) {
         <div className="movie card d-flex shadow-sm h-100">
             <div className="card-body">
                 <h4>{movie.title}</h4>
-                <span className="text-muted">By <span>{movie.director}</span></span>
-                <p className="overview mb-3">{movie.overview}</p>
+
+                <p className="my-1 mt-4"><strong>Director:</strong> {movie.director}</p>
+                <p className="my-1"><strong>Year:</strong> {movie.year}</p>
+                <p className="my-1 mb-3"><strong>Rating:</strong> {movie.rating}</p>
                 <Link to={`/movies/${movie.id}`} className="details btn btn-dark">Dettagli</Link>
             </div>
         </div>
