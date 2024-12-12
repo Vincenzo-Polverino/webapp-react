@@ -111,19 +111,19 @@ export default function MoviePage() {
             <div className="moviePage container my-5 mx-auto card p-5 shadow">
                 <h2>{movie?.title} ({movie?.release_year})</h2>
                 <p className='my-1 mt-4'><strong>Director:</strong> {movie?.director}</p>
-                <p className='my-1'><strong>Genere:</strong> {movie?.genre}</p>
+                <p className='my-1'><strong>Genre:</strong> {movie?.genre}</p>
                 <strong className='mt-2'>Overview:</strong><p>{movie?.abstract}</p>
             </div>
             <section>
                 <div className="container mx-auto">
-
+                    <h1>Reviews</h1>
                     <div>
                         {
                             movie?.reviews && movie.reviews.map(review => (
                                 <div className="card m-4 p-3 shadow" key={review.id}>
                                     <h3>{review.name}</h3>
-                                    <p>{review.text}</p>
-                                    <p><strong>Voto:</strong>{review.vote}</p>
+                                    <p><em>{review.text}</em></p>
+                                    <h4>Vote: {review.vote}</h4>
                                 </div>
                             ))
                         }
