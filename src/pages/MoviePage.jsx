@@ -90,19 +90,21 @@ export default function MoviePage() {
     useEffect(() => {
         fetch(`http://localhost:3000/api/movies/${id}`)
 
+
             .then(res => res.json())
 
+
             .then((data) => {
-                setMovie(data.movie)
-                console.log(data);
+                setMovie(data)
 
             })
             .catch((error) => {
 
                 console.error("Fetch movies fallito:", error);
+
             });
 
-    }, [])
+    }, [id])
 
     return (
         <>
@@ -115,13 +117,13 @@ export default function MoviePage() {
             <section>
                 <div className="container mx-auto">
 
-                    <div className="row">
+                    <div>
                         {
                             movie?.reviews && movie.reviews.map(review => (
-                                <div className="col-3 g-4" key={review.id}>
+                                <div className="card m-4 p-3 shadow" key={review.id}>
                                     <h3>{review.name}</h3>
                                     <p>{review.text}</p>
-                                    <p>{review.vote}</p>
+                                    <p><strong>Voto:</strong>{review.vote}</p>
                                 </div>
                             ))
                         }
