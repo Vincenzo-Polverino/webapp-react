@@ -6,8 +6,8 @@ export default function MovieCard({ movie }) {
                 <h4>{movie.title}</h4>
 
                 <p className="my-1 mt-4"><strong>Director:</strong> {movie.director}</p>
-                <p className="my-1"><strong>Year:</strong> {movie.year}</p>
-                <p className="my-1 mb-3"><strong>Rating:</strong> {movie.rating}</p>
+                <p className="my-1"><strong>Anno:</strong> {movie.release_year}</p>
+                <p className="my-1 mb-3"><strong>Genere:</strong> {movie.genre}</p>
                 <Link to={`/movies/${movie.id}`} className="details btn btn-dark">Dettagli</Link>
             </div>
         </div>

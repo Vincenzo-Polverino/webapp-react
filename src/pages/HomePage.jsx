@@ -93,9 +93,7 @@ export default function HomePage() {
         fetch('http://localhost:3000/api/movies')
 
             .then((res) => {
-
                 return res.json()
-
             })
 
             .then((data) => {
