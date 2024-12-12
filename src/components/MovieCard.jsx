@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 export default function MovieCard({ movie }) {
     return (
-        <div className="movie card d-flex shadow-sm h-100">
+        <div className="movie card d-flex shadow h-100">
             <div className="card-body">
                 <h4>{movie.title}</h4>
 
