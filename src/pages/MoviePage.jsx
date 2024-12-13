@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import ReviewForm from '../components/ReviewForm'
 
 export default function MoviePage() {
     const [movie, setMovie] = useState({})
@@ -106,6 +107,13 @@ export default function MoviePage() {
 
     }, [id])
 
+    const handleReviewAdded = (newReview) => {
+        setMovie((prevMovie) => ({
+            ...prevMovie,
+            reviews: [...prevMovie.reviews, newReview],
+        }));
+    };
+
     return (
         <>
             <div className="moviePage container my-5 mx-auto card p-5 shadow">
@@ -116,6 +124,9 @@ export default function MoviePage() {
             </div>
             <section>
                 <div className="container mx-auto">
+                    <div className='m-3'>
+                        <ReviewForm movieId={id} onReviewAdded={handleReviewAdded} />
+                    </div>
                     <h1>Reviews</h1>
                     <div>
                         {
@@ -129,6 +140,7 @@ export default function MoviePage() {
                         }
 
                     </div>
+
                 </div>
 
             </section>
