@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import MovieCard from "../components/MovieCard"
+import { useLoader } from '../contexts/LoaderContext'
+import Loader from '../components/Loader'
 
 
 export default function HomePage() {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState(null)
+    const { showLoader, hideLoader } = useLoader()
 
     /* const movies = [
          {
@@ -104,9 +107,11 @@ export default function HomePage() {
                 console.error("Fetch movies fallito:", error);
             });
 
-    }, [])
+    }, [showLoader, hideLoader])
 
-
+    if (!movies) {
+        return <Loader />;
+    }
     return (
 
         <section>
