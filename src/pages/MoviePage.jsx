@@ -1,10 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useLoader } from '../contexts/LoaderContext'
 import ReviewForm from '../components/ReviewForm'
+import Loader from '../components/Loader'
 
 export default function MoviePage() {
-    const [movie, setMovie] = useState({})
+    const [movie, setMovie] = useState(null)
     const { id } = useParams();
+    const { showLoader, hideLoader } = useLoader()
 
     /*  const movies = [
           {
@@ -89,6 +92,7 @@ export default function MoviePage() {
           }
       ];*/
     useEffect(() => {
+        showLoader()
         fetch(`http://localhost:3000/api/movies/${id}`)
 
 
@@ -97,15 +101,21 @@ export default function MoviePage() {
 
             .then((data) => {
                 setMovie(data)
+                hideLoader()
 
             })
             .catch((error) => {
 
                 console.error("Fetch movies fallito:", error);
+                hideLoader()
 
             });
 
-    }, [id])
+    }, [id, showLoader, hideLoader])
+
+    if (!movie) {
+        return <Loader />;
+    }
 
     const handleReviewAdded = (newReview) => {
         setMovie((prevMovie) => ({
@@ -113,6 +123,7 @@ export default function MoviePage() {
             reviews: [...prevMovie.reviews, newReview],
         }));
     };
+
 
     return (
         <>

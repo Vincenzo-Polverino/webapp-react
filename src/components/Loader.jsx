@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoader } from './LoaderContext';
+import { useLoader } from '../contexts/LoaderContext';
 
 const Loader = () => {
     const { isLoading } = useLoader();
@@ -8,8 +8,10 @@ const Loader = () => {
 
     return (
 
-        <div className="loader">
-            Loading...
+        <div className="loader-overlay">
+            <div className="loader">
+                Loading...
+            </div>
         </div>
 
     );
